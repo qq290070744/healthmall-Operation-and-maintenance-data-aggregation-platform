@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--1.添加视口标签 快捷方式：meta:vp -->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <!--2.设置网页渲染模式  快捷方式：meta:compat  -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!--3.把bootstrap 核心样式（压缩版）引入-->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <link rel="shortcut icon" href="/static/img/loggo.png" type="image/x-icon"/>
+    <title>运维数据汇总平台</title>
+    <!--6.针对于IE9 以下浏览器做兼容性处理 快捷方式：cc:ie -->
+    <!--[if lt IE9 ]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+    </style>
+</head>
+<body>
+<h1 class="text-center "><b>健康猫运维数据汇总平台</b></h1>
+<div style="height: 20px"></div>
+
+<div class="text-center row center-block">
+
+
+    <div class=" col-md-3">
+        <h3 class="text-center"><b>24小时服务器可用率</b></h3>
+        <h1 class="text-center" id="24小时服务器可用率">数据加载中...</h1>
+    </div>
+
+    <div class="col-md-3">
+        <table class=" table table-bordered table-condensed ">
+            <tr>
+                <th class="text-center" rowspan="4" style="line-height: 80px"><b>24小时内告警情况</b></th>
+            </tr>
+
+            <tr>
+
+                <td>一般</td>
+                <td id="24小时内告警情况一般">数据加载中...</td>
+            </tr>
+            <tr>
+
+                <td>重要</td>
+                <td id="24小时内告警情况重要">数据加载中...</td>
+            </tr>
+            <tr>
+
+                <td>灾难</td>
+                <td id="24小时内告警情况灾难">数据加载中...</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-3">
+        <table class=" table table-bordered table-condensed ">
+            <tr>
+                <th class="text-center " rowspan="4" style="line-height: 80px"><b>当前数据库QPS</b></th>
+
+            </tr>
+            <tr>
+                <td>PostgreSQL</td>
+                <td >SSO:<span id="SSO数据库PostgreSQLQPS">数据加载中...</span></td>
+                <td >电商:<span id="电商数据库PostgreSQLQPS">数据加载中...</span></td>
+
+            </tr>
+            <tr>
+                <td>MySQL</td>
+                <td >SSO:<span id="SSO数据库MySQLQPS">数据加载中...</span></td>
+                <td >电商:<span id="电商数据库MySQLQPS">数据加载中...</span></td>
+
+            </tr>
+        </table>
+    </div>
+
+    <div class="col-md-3">
+        <h3><b>当前的HA访问量</b></h3>
+        <h1 id="当前的HA访问量">数据加载中...</h1>
+    </div>
+
+
+</div>
+<div style="height: 10px"></div>
+
+<div class="text-center row center-block">
+    <div class="col-md-3" style="margin-top: 200px">
+        <table class="table table-bordered table-condensed">
+            <tr class="">
+                <th class="text-center " colspan="4">redis命中率</th>
+
+            </tr>
+            <tr>
+                <th class="text-center">NET</th>
+                <th class="text-center">SSO</th>
+                <th class="text-center">电商</th>
+                {#                <th class="text-center">生活馆</th>#}
+            </tr>
+            <tr>
+                <td id="redis命中率NET">数据加载中...%</td>
+                <td id="redis命中率SSO">数据加载中...%</td>
+                <td id="redis命中率电商">数据加载中...%</td>
+                {#                <td id="redis命中率生活馆">数据加载中...%</td>#}
+
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6 ">
+
+        <iframe src="/总流量" style="border: none;width: 1000px;height: 400px;" class="pull-left text-center"
+                scrolling="no"></iframe>
+        <table class="table table-bordered table-condensed">
+            <tr>
+                <td><b>进或出</b></td>
+                <td><b>最大</b></td>
+                <td><b>最小</b></td>
+                <td><b>最新</b></td>
+            </tr>
+            <tr>
+                <td>进</td>
+                <td id="进总流量最大">数据加载中...</td>
+                <td id="进总流量最小">数据加载中...</td>
+                <td id="进总流量最新">数据加载中...</td>
+            </tr>
+            <tr>
+                <td>出</td>
+                <td id="出总流量最大">数据加载中...</td>
+                <td id="出总流量最小">数据加载中...</td>
+                <td id="出总流量最新">数据加载中...</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-3" style="margin-top: 180px">
+        <table class="table table-bordered table-condensed">
+            <tr>
+                <th rowspan="5" class="text-center" style="line-height: 120px">网络情况</th>
+            </tr>
+            <tr>
+                <th class="text-center">区域</th>
+                <th class="text-center">速度</th>
+                <th class="text-center">可用性</th>
+            </tr>
+            <tr>
+                <td>北京</td>
+                <td id="北京网络速度">数据加载中...</td>
+                <td id="北京网络可用性">数据加载中...%</td>
+            </tr>
+            <tr>
+                <td>上海</td>
+                <td id="上海网络速度">数据加载中...</td>
+                <td id="北京网络可用性">数据加载中...%</td>
+            </tr>
+            <tr>
+                <td>广州</td>
+                <td id="广州网络速度">数据加载中...</td>
+                <td id="北京网络可用性">数据加载中...%</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div style="height: 10px"></div>
+
+<div class="text-center row center-block">
+    <div class="col-md-3" style="margin-top: 100px">
+        <table class="table table-bordered table-condensed">
+
+            <tr>
+                <th class="text-center" rowspan="2"><span style="line-height: 50px">服务</span></th>
+                <th class="text-center" colspan="2">响应时间(单位毫秒)</th>
+                <th class="text-center" colspan="2">当前状态</th>
+            </tr>
+            <tr>
+                <th class="text-center">北京探测点</th>
+                <th class="text-center">上海探测点</th>
+                <th class="text-center">北京探测点</th>
+                <th class="text-center">上海探测点</th>
+            </tr>
+            <tr>
+                <td>后台API</td>
+                <td id="后台API响应时间北京探测点">数据加载中...</td>
+                <td id="后台API响应时间上海探测点">数据加载中...</td>
+                <td id="后台API当前状态北京探测点">数据加载中...</td>
+                <td id="后台API当前状态上海探测点">数据加载中...</td>
+            </tr>
+            <tr>
+                <td>登陆</td>
+                <td id="登陆响应时间北京探测点">数据加载中...</td>
+                <td id="登陆响应时间上海探测点">数据加载中...</td>
+                <td id="登陆当前状态北京探测点">数据加载中...</td>
+                <td id="登陆当前状态上海探测点">数据加载中...</td>
+            </tr>
+            <tr>
+                <td>电商首页</td>
+                <td id="电商首页响应时间北京探测点">数据加载中...</td>
+                <td id="电商首页响应时间上海探测点">数据加载中...</td>
+                <td id="电商首页当前状态北京探测点">数据加载中...</td>
+                <td id="电商首页当前状态上海探测点">数据加载中...</td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="col-md-6 ">
+        <iframe src="/CDN带宽" style="border: none;width: 1000px;height: 400px;" class="pull-left text-center"
+                scrolling="no"></iframe>
+        <table class=" table table-bordered table-condensed">
+            <tr class="">
+                <td><b>总流量</b></td>
+                <td><b>回源带宽峰值</b></td>
+                <td><b>CDN带宽峰值</b></td>
+                <td><b>CDN带宽峰值时间</b></td>
+            </tr>
+            <tr class="">
+                <td id="CDN带宽总流量">数据加载中...</td>
+                <td id="CDN带宽回源带宽峰值">数据加载中...</td>
+                <td id="CDN带宽峰值">数据加载中...</td>
+                <td id="CDN带宽峰值时间">数据加载中...</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-3" style="margin-top: 130px">
+        <table class="table table-bordered table-condensed">
+            <tr>
+                <th rowspan="5" class="text-center" style="line-height: 120px">青云用量</th>
+            </tr>
+
+            <tr>
+                <td>云服务器</td>
+                <td id="青云用量云服务器">数据加载中...</td>
+
+            </tr>
+            <tr>
+                <td>路由器</td>
+                <td id="青云用量路由器">数据加载中...</td>
+
+            </tr>
+            <tr>
+                <td>硬盘</td>
+                <td id="青云用量硬盘">数据加载中...</td>
+
+            </tr>
+            <tr>
+                <td>IP地址</td>
+                <td id="青云用量IP地址">数据加载中...</td>
+
+            </tr>
+
+        </table>
+    </div>
+</div>
+<div style="height: 10px"></div>
+
+<div class="text-center row center-block">
+    <div class="col-md-3" style="margin-top: 180px">
+        <table class="table table-bordered table-condensed">
+            <tr>
+                <td>存储</td>
+                <td id="存储">数据加载中...</td>
+            </tr>
+            <tr>
+                <td>CDN</td>
+                <td id="CDN">数据加载中...</td>
+            </tr>
+            <tr>
+                <td>带宽</td>
+                <td id="带宽">数据加载中...</td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="col-md-3" style="margin-top: 150px">
+        <table class="table table-bordered table-condensed">
+            <tr>
+                <th></th>
+                <th class="text-center">最近24小时</th>
+            </tr>
+            <tr>
+                <td>PV</td>
+                <td id="pv">数据加载中...</td>
+            </tr>
+            <tr>
+                <td>UV</td>
+                <td id="uv">数据加载中...</td>
+            </tr>
+            <tr>
+                <td>IP</td>
+                <td id="ip">数据加载中...</td>
+            </tr>
+            <tr>
+                <td>订单量</td>
+                <td id="order_num">数据加载中...</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6 ">
+
+        <iframe src="/最近7天" style="border: none;width: 900px;height: 400px; " class="pull-left text-center"
+                scrolling="no"></iframe>
+    </div>
+</div>
+<!--4.把jQuery 引入-->
+<script src="/static/js/jquery-1.10.2.min.js"></script>
+<!--5.把bootstrap 核心脚本文件（压缩版）引入-->
+<script src="/static/js/bootstrap.min.js"></script>
+
+<script>
+    $(function () {
+        function func() {
+            $.ajax({
+                url: "", context: document.body, async: true, success: function (getdata) {
+                    $('#pv').text(getdata['pvuvip'][0]);
+                    $('#uv').text(getdata['pvuvip'][1]);
+                    $('#ip').text(getdata['pvuvip'][2]);
+                    $('#order_num').text(getdata['pvuvip'][3]);
+
+                    $('#24小时服务器可用率').html('<b>'+getdata['二十四小时服务器可用率']+'%<b>').css({'color': 'green'});
+                    $('#当前的HA访问量').html('<b>' + getdata['当前HA访问量'] + '/秒<b>').css({'color': 'green'});
+                    $('#24小时内告警情况一般').text(getdata['告警的情况'][3]);
+                    $('#24小时内告警情况重要').text(getdata['告警的情况'][2]);
+                    $('#24小时内告警情况灾难').text(getdata['告警的情况'][1]);
+
+{#                    $('#数据库PostgreSQL').text(getdata['当前数据库QPS']['PostgreSQL']);#}
+{#                    $('#数据库MySQL').text(getdata['当前数据库QPS']['MySQL']);#}
+                    $('#SSO数据库PostgreSQLQPS').text(getdata['当前数据库QPS']['SSOPostgreSQL']);
+                    $('#电商数据库PostgreSQLQPS').text(getdata['当前数据库QPS']['电商PostgreSQL']);
+                    $('#SSO数据库MySQLQPS').text(getdata['当前数据库QPS']['SSOMySQL']);
+                    $('#电商数据库MySQLQPS').text(getdata['当前数据库QPS']['电商MySQL']);
+
+
+                    $('#redis命中率NET').text(getdata['redis命中率']['NET命中率'] + '%');
+                    $('#redis命中率SSO').text(getdata['redis命中率']['SSO命中率'] + '%');
+                    $('#redis命中率电商').text(getdata['redis命中率']['电商命中率'] + '%');
+                    {#                    $('#redis命中率生活馆').text('N/A%');#}
+
+                    $('#北京网络速度').text(getdata['网络_情况']['北京网络情况'] + 'ms');
+                    $('#北京网络可用性').text(getdata['网络_情况']['北京网络可用性']);
+                    $('#上海网络速度').text(getdata['网络_情况']['上海网络情况'] + 'ms');
+                    $('#上海网络可用性').text(getdata['网络_情况']['上海网络可用性']);
+                    $('#广州网络速度').text(getdata['网络_情况']['广州网络情况'] + 'ms');
+                    $('#广州网络可用性').text(getdata['网络_情况']['广州网络可用性']);
+
+                    function statuss(当前状态) {
+                        if (当前状态 == 200) {
+                            当前状态 = '<span class="text-success">' + 当前状态 + ':正常</span>'
+                        } else {
+                            当前状态 = '<p class="text-danger">' + 当前状态 + ':异常</p>'
+                        }
+                        return 当前状态
+                    }
+
+                    $('#后台API响应时间北京探测点').text(getdata['服务响应时间当前状态']['后台API']['北京探测点响应时间'] + 'ms');
+                    $('#后台API响应时间上海探测点').text(getdata['服务响应时间当前状态']['后台API']['上海探测点响应时间'] + 'ms');
+                    $('#后台API当前状态北京探测点').html(statuss(getdata['服务响应时间当前状态']['后台API']['北京探测点当前状态']));
+                    $('#后台API当前状态上海探测点').html(statuss(getdata['服务响应时间当前状态']['后台API']['上海探测点当前状态']));
+
+                    $('#登陆响应时间北京探测点').text(getdata['服务响应时间当前状态']['登陆']['北京探测点响应时间'] + 'ms');
+                    $('#登陆响应时间上海探测点').text(getdata['服务响应时间当前状态']['登陆']['上海探测点响应时间'] + 'ms');
+                    $('#登陆当前状态北京探测点').html(statuss(getdata['服务响应时间当前状态']['登陆']['北京探测点当前状态']));
+                    $('#登陆当前状态上海探测点').html(statuss(getdata['服务响应时间当前状态']['登陆']['上海探测点当前状态']));
+
+                    $('#电商首页响应时间北京探测点').text(getdata['服务响应时间当前状态']['电商首页']['北京探测点响应时间'] + 'ms');
+                    $('#电商首页响应时间上海探测点').text(getdata['服务响应时间当前状态']['电商首页']['上海探测点响应时间'] + 'ms');
+                    $('#电商首页当前状态北京探测点').html(statuss(getdata['服务响应时间当前状态']['电商首页']['北京探测点当前状态']));
+                    $('#电商首页当前状态上海探测点').html(statuss(getdata['服务响应时间当前状态']['电商首页']['上海探测点当前状态']));
+
+
+                    $('#青云用量云服务器').text(getdata['青云用量']['云服务器']);
+                    $('#青云用量路由器').text(getdata['青云用量']['路由器']);
+                    $('#青云用量硬盘').text(getdata['青云用量']['硬盘']);
+                    $('#青云用量IP地址').text(getdata['青云用量']['IP地址']);
+
+                    $('#存储').text(getdata['七牛用量']['存储']);
+                    $('#CDN').text(getdata['七牛用量']['CDN']);
+                    $('#带宽').text(getdata['七牛用量']['带宽']);
+
+                    $('#CDN带宽总流量').text(getdata['CDN带宽总流量'] + 'GB');
+                    $('#CDN带宽峰值').text(getdata['CDN带宽峰值'][0] + 'Mbps');
+                    $('#CDN带宽峰值时间').text(getdata['CDN带宽峰值'][1]);
+                    $('#CDN带宽回源带宽峰值').text('N/A');
+
+                    $('#进总流量最大').text(getdata['总流量']['进总流量最大'].toFixed(2) + 'Mbps');
+                    $('#进总流量最小').text(getdata['总流量']['进总流量最小'].toFixed(2) + 'Mbps');
+                    $('#进总流量最新').text(getdata['总流量']['进总流量最新'].toFixed(2) + 'Mbps');
+                    $('#出总流量最大').text(getdata['总流量']['出总流量最大'].toFixed(2) + 'Mbps');
+                    $('#出总流量最小').text(getdata['总流量']['出总流量最小'].toFixed(2) + 'Mbps');
+                    $('#出总流量最新').text(getdata['总流量']['出总流量最新'].toFixed(2) + 'Mbps');
+
+                }
+            });
+        }
+
+        func();
+        setInterval(function () {
+            //定时器要执行的代码
+            func()
+        }, 30000);
+
+    })
+</script>
+</body>
+</html>
