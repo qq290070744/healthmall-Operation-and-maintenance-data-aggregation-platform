@@ -5,7 +5,7 @@ import redis,pymysql,time
 
 
 def insert_mysql(sql):
-    conn = pymysql.connect(host='121.201.7.63', port=33060, user='jiang', passwd='jiangwenhui', db='datashow',
+    conn = pymysql.connect(host='121.201.7.63', port=3306, user='user', passwd='passwd', db='datashow',
 
                            charset='UTF8')
 
