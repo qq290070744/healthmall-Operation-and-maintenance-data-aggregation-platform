@@ -4,7 +4,7 @@ import qingcloud.iaas, json, pymysql, time
 
 
 def insert_mysql(sql):
-    conn = pymysql.connect(host='121.201.7.63', port=33060, user='jiang', passwd='jiangwenhui', db='datashow',
+    conn = pymysql.connect(host='121.201.7.63', port=33060, user='user', passwd='passwd', db='datashow',
 
                            charset='UTF8')
 
@@ -24,10 +24,7 @@ def main(qy_access_key_id, qy_secret_access_key):
     def func(节点id):
         conn = qingcloud.iaas.connect_to_zone(
             节点id,
-            # 'RHNPXXRNMZPLIWFLASML',
-            # 'PUOYZQYNZCXNUCOWBMJT',
-            # '9nLNT8XWwwPzKGCfRYmsimmbrVn09Me6bgLsqNTl',
-            # 'ejVgJgCGKVxxaUAzYaSdiEzgoCqNUn5hGsvcWKQj',
+            
             qy_access_key_id,
             qy_secret_access_key,
         )
@@ -77,11 +74,11 @@ def main(qy_access_key_id, qy_secret_access_key):
     return {"主机总数": 主机总数, "路由器总数": 路由器总数, "硬盘总数": 硬盘总数, "公网IP总数": 公网IP总数}
 
 
-key_dic = {"RHNPXXRNMZPLIWFLASML": "9nLNT8XWwwPzKGCfRYmsimmbrVn09Me6bgLsqNTl",
-           "PUOYZQYNZCXNUCOWBMJT": "ejVgJgCGKVxxaUAzYaSdiEzgoCqNUn5hGsvcWKQj",
-           "KAVEMSEDBSALLJJZUQGP":"OPYx1vPO231IneO7WmOtZDMC0TvKAhlQnXyjeZR5",
-           "IIKBAUXUNVZMCQECVKRP":"fymlxqFteWYiDLXoxe29dYWHp9rr3w9grfiqjsQg",
-           "ROWBIKJKNGDJQBIBLIWP":"rWUM5GXXfvMER83rnuG87j5uWpbEatXcju7RIa9R"
+key_dic = {"....": "....",
+           "....": "....",
+           "....":"....",
+           "....":"....",
+           "....":"...."
            }
 if __name__ == "__main__":
     主机总数 = 0
