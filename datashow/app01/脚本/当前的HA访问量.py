@@ -4,7 +4,7 @@ import pymysql
 
 
 def select_mysql(sql):
-    conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', passwd='UYCC3JpsVxcHElmTaiyR', db='zabbix',
+    conn = pymysql.connect(host='127.0.0.1', port=3306, user='user', passwd='passwd', db='zabbix',
 
                            charset='UTF8')
 
@@ -21,7 +21,7 @@ def select_mysql(sql):
 
 
 def insert_mysql(sql):
-    conn = pymysql.connect(host='121.201.7.63', port=33060, user='jiang', passwd='jiangwenhui', db='datashow',
+    conn = pymysql.connect(host='121.201.7.63', port=3306, user='user', passwd='passwd', db='datashow',
 
                            charset='UTF8')
 
