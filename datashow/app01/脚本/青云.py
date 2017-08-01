@@ -4,7 +4,7 @@ import qingcloud.iaas, json, pymysql, time
 
 
 def insert_mysql(sql):
-    conn = pymysql.connect(host='121.201.7.63', port=33060, user='user', passwd='passwd', db='datashow',
+    conn = pymysql.connect(host='121.201.7.63', port=3306, user='user', passwd='passwd', db='datashow',
 
                            charset='UTF8')
 
