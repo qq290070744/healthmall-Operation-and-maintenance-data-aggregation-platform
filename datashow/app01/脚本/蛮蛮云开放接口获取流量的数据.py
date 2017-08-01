@@ -16,7 +16,7 @@ from collections import OrderedDict
 
 
 def insert_mysql(sql):
-    conn = pymysql.connect(host='121.201.7.63', port=33060, user='jiang', passwd='jiangwenhui', db='datashow',
+    conn = pymysql.connect(host='121.201.7.63', port=3306, user='user', passwd='passwd', db='datashow',
 
                            charset='UTF8')
 
@@ -34,9 +34,9 @@ def insert_mysql(sql):
 
 def func(domain):
     # 安全密钥
-    skey = "7784c7af2434ce6a8865b31a645aeeb6"
+    skey = "skey"
     # 用户唯一标识
-    uuid = "Wnux6Q63bVwISCf"
+    uuid = "uuid"
     # 域名
     domain = domain
     # API版本
