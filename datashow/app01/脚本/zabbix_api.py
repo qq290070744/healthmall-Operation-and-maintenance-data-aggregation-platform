@@ -6,8 +6,8 @@ payload = {
     "jsonrpc": "2.0",
     "method": "user.login",
     "params": {
-        "user": "jwh",
-        "password": "290070744"
+        "user": "user",
+        "password": "password"
     },
     "id": 1,
     "auth": None
