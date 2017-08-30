@@ -6,9 +6,9 @@ import time, json, pymysql, collections, os, pymongo
 from app01.models import *
 from django.http import JsonResponse
 
-conn = pymongo.MongoClient("121.201.29.81", 28017)
+conn = pymongo.MongoClient("127.0.0.1", 27017)
 db = conn.admin  # 连接库
-db.authenticate("admin", "daxianggm123")  # 用户认证
+db.authenticate("admin", "admin")  # 用户认证
 db = conn.datashow
 
 from datashow import settings
@@ -21,7 +21,7 @@ mysql_db = settings.DATABASES['default']['NAME']
 
 
 def select_mysql(sql):
-    conn = pymysql.connect(host='121.201.68.21', port=3307, user='jiang', passwd='jiangwenhui', db='daxiangzhanshi',
+    conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', passwd='root', db='daxiangzhanshi',
 
                            charset='UTF8')
     cur = conn.cursor()
